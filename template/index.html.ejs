@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title><%= title %></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<style>
+			<%- include('main.css') %>
+			<%- include('csl.css.ejs') %>
+		</style>
+	</head>
+	<body>
+		<article class="markdown-body">
+			<header>
+				<h1><%- title %></h1>
+				<%- subtitle ? `<h2>${subtitle}</h2>` : `` %>
+				<section>
+					<h2>Proposed by</h2>
+					<%- (function() {
+						let buf = [];
+						buf.push(`<address>`);
+						if (author.email) buf.push(`<a href="mailto:${author.email}">`);
+						buf.push(author.name);
+						if (author.email) buf.push(`</a>`);
+						buf.push(`<br />`);
+						if (author.institution) buf.push(author.institution) && buf.push(`<br />`);
+					  if (author.student_id) buf.push(author.student_id);
+					  buf.push(`</address>`);
+						return buf.join('');
+					})() %>
+				</section>
+				<section>
+					<h2>Prospectively Supervised By</h2>
+					<%- supervisors.map(author => {
+						let buf = [];
+						buf.push(`<address>`);
+						if (author.email) buf.push(`<a href="mailto:${author.email}">`);
+						buf.push(author.name);
+						if (author.email) buf.push(`</a>`);
+						buf.push(`<br />`);
+						if (author.institution) buf.push(author.institution);
+					  	buf.push(`</address>`);
+						return buf.join('');
+					}).join('') %>
+				</section>
+			</header>
+			<main>
+				<%- contents %>
+			<main>
+		</article>
+	</body>
+</html>

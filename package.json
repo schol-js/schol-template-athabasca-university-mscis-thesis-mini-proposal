@@ -1,7 +1,15 @@
 {
-  "name": "schol-template-default",
+  "name": "schol-template-athabasca-university-mscis-thesis-mini-proposal",
   "version": "0.0.0",
-  "description": "Default template for schol.",
-  "author": "Jamie Czerwinski <jamie.czerwinski@gmail.com>",
-  "main": "index.js"
+  "description": "schol template for an Athabasca University Master of Science in Information Systems thesis mini proposal.",
+  "author": {
+    "name": "Jamie Czerwinski",
+    "email": "jamie.czerwinski@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/schol-js/schol-template-athabasca-university-mscis-thesis-mini-proposal"
+  },
+  "main": "template/index.html.ejs",
+  "license": "MIT"
 }
